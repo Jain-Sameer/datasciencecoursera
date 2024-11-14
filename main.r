@@ -1,0 +1,12 @@
+data(mtcars)
+head(mtcars)
+summary(mtcars)
+plot(mtcars$hp, mtcars$mpg, xlab = "Horsepower", ylab = "Miles Per Gallon", main = "Horsepower vs. MPG")
+cor(mtcars$hp, mtcars$mpg)
+model <- lm(mpg ~ hp, data = mtcars)
+summary(model)
+abline(model, col = "red")
+
+new_hp <- data.frame(hp = 100)
+predicted_mpg <- predict(model, newdata = new_hp)
+print(predicted_mpg)
